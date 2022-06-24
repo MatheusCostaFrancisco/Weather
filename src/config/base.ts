@@ -1,7 +1,9 @@
 import axios from "axios";
 
-const baseURL = 'https://api.weatherapi.com/v1/';
-const api = axios.create({baseURL});
+const api = axios;
+
+api.defaults.baseURL = "http://api.weatherapi.com/v1/";
+axios.defaults.headers.post["Content-Type"] = "application/json;charset=utf-8";
+axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
 
 export default api;
-
