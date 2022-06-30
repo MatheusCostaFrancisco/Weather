@@ -1,0 +1,68 @@
+$white: #FFFFFF;
+$black: #000000;
+
+$sunny-upper: #007991;
+$sunny-lower: #78FFD6;
+
+$twilight-upper: #BE5869;
+$twilight-lower: #403A3E;
+
+
+$sunrise-upper: #D3959B;
+$sunrise-lower: #BFE6BA;
+
+$snowy-upper: #CFDEF7;
+$snowy-lower: #E0EAFC;
+
+$cloudy-upper: #304352;
+$cloudy-lower: #D7D2CC;
+
+$night-upper: #01162E;
+$night-medium: #013155;
+$night-lower: #01426D;
+
+$cloudyNight-upper: #141E30;
+$cloudyNight-lower: #243B55;
+
+$rainy-upper: #2C3E50;
+$rainy-lower: #BDC3C7;
+
+
+@mixin backgroundColor($upper, $lower) {
+    background: $upper;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, $upper, $lower);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, $upper, $lower); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+/* Twilight */
+.background-sunny {
+    @include backgroundColor($sunny-upper, $sunny-lower);
+}
+
+.background-twilight {
+    @include backgroundColor($twilight-upper, $twilight-lower);
+}
+
+.background-sunrise {
+    @include backgroundColor($sunrise-upper, $sunrise-lower);
+}
+
+.background-snowy {
+    @include backgroundColor($snowy-upper, $snowy-lower);
+}
+
+.background-cloudy {
+    @include backgroundColor($cloudy-upper, $cloudy-lower);
+}
+
+.background-night {
+    @include backgroundColor($night-upper, $night-lower);
+}
+
+.background-cloudyNight {
+    @include backgroundColor($cloudyNight-upper, $cloudyNight-lower);
+}
+
+.background-rainy {
+    @include backgroundColor($rainy-upper, $rainy-lower);
+}

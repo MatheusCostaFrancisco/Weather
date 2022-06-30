@@ -1,23 +1,62 @@
-import React, { useEffect } from "react";
+import React, { StyleHTMLAttributes, useState } from "react";
 
 import "./App.css";
-import { WeatherController } from "./infra/Controller/weather.controller";
 
 function App() {
-  //const [data, setData] = useState({});
+  const [state, setState] = useState("rainy");
+  const colors = [
+    "rainy",
+    "cloudy",
+    "night",
+    "cloudyNight",
+    "snowy",
+    "sunny",
+    "twilight",
+    "sunrise",
+  ];
+  function toTitleCase(str: string) {
+    return str.replace(/\w\S*/g, function (txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+  }
 
-  const loadData = async () => {
-    const getData = await WeatherController.getCurrentByCity("Araras");
-
-    console.log("getData", JSON.stringify(getData, null, 2));
-  };
-
-  useEffect(() => {
-    console.log("to aqui ein???");
-    loadData();
-  }, []);
-
-  return <div className="background">Olá</div>;
+  return (
+    <div
+      className={`base background-${state}`}
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        flexWrap: "wrap",
+        padding: "50px",
+      }}
+    >
+      {colors.map((bg) => {
+        return (
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              border: "1px solid #aaa",
+              borderRadius: "12px",
+              padding: "2px",
+              textAlign: "center",
+              width: "25vw",
+              height: "10vh",
+              color: "white",
+              cursor: "pointer",
+            }}
+            className={`background-${bg}`}
+            onClick={() => {
+              setState(bg);
+            }}
+          >
+            {toTitleCase(bg)}
+          </div>
+        );
+      })}
+    </div>
+  );
 }
 
 export default App;
