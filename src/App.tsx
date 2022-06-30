@@ -4,7 +4,7 @@ import "./App.css";
 import { WeatherController } from "./infra/Controller/weather.controller";
 
 function App() {
-  //const [data, setData] = useState({});
+  const [data, setData] = useState({});
 
   const loadData = async () => {
     const getData = await WeatherController.getCurrentByCity("Araras");
