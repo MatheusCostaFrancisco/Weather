@@ -26,7 +26,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
-    - run: git config --global user.name "MatheusCostaFrancisco" & git config --global user.email contato.matheuscf@gmail.com
+    - run: git config --global user.name "MatheusCostaFrancisco" 
+    - run: git config --global user.email contato.matheuscf@gmail.com
     - run: yarn
     - run: yarn build
     - run: yarn test
