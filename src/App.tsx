@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./assets/css/fonts.css";
 import "./App.css";
+import Icon from "./components/atoms/Icon/Icon";
 
 function App() {
   const [state, setState] = useState("rainy");
@@ -55,6 +56,9 @@ function App() {
           </div>
         );
       })}
+      <div style={{ width: "54px" }}>
+        <Icon name="temperature"></Icon>
+      </div>
     </div>
   );
 }
